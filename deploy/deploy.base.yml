@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    image: demoapp:${IM_TAG-latest}
+    networks:
+      - appnet
+    volumes:
+      - /var/log:/var/log
+      - /data/app_data:/app/data
+networks:
+  appnet:
