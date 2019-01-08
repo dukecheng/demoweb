@@ -19,6 +19,11 @@ namespace demoweb
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+            .ConfigureAppConfiguration((hostContext, configBuilder) =>
+            {
+                configBuilder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                configBuilder.AddJsonFile($"appsettings.{hostContext.HostingEnvironment.EnvironmentName}.json", optional: false);
+            })
+            .UseStartup<Startup>();
     }
 }

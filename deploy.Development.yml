@@ -1,0 +1,6 @@
+services:
+  web:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - 8090:80  
