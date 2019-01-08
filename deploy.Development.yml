@@ -4,4 +4,10 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - 8090:80  
+      - 8090:80
+    configs:
+      - source: appsettings
+        target: /app/appsettings.Development.json
+configs:
+  appsettings:
+    file: appsettings.Development.json
