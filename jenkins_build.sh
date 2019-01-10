@@ -8,7 +8,10 @@ docker run -t --rm -v ~/.dotnet:/root/.dotnet -v ~/.nuget:/root/.nuget  -v ${WOR
 imagesName=demoweb
 buildversion=1.0.${BUILD_NUMBER}
 mkdir -p ${WORKSPACE}/buildreport
-echo "Image Version: ${imagesName}:${buildversion}    GIT COMMIT: $GIT_COMMIT    GIT_BRANCH:$GIT_BRANCH    GIT_URL:$GIT_URL" > ${WORKSPACE}/buildreport/buildversion.txt
+echo "Image Version: ${imagesName}:${buildversion}
+    GIT COMMIT: $GIT_COMMIT
+    GIT_BRANCH:$GIT_BRANCH
+    GIT_URL:$GIT_URL" > ${WORKSPACE}/buildreport/buildversion.txt
 docker build -t ${imagesName}:${buildversion} --file ${WORKSPACE}/Dockerfile ${WORKSPACE}
 
 export IM_TAG=${buildversion} && docker-compose -f deploy.base.yml -f deploy.Development.yml config > docker-stack.yml 
