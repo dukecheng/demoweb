@@ -43,6 +43,11 @@ service docker restart
 初始化单节点的docker swarm集群
 ```
 docker swarm init
+--查看集群节点列表, 确认集群创建成功
+docker node ls
+//output:
+ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS      ENGINE VERSION
+xxxxxxx                   *   dotnetbuilder       Ready               Active              Leader              18.09.1
 ```
 
 ## ASP NETCORE应用构建，发布，镜像打包
