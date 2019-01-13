@@ -80,7 +80,12 @@ docker stack deploy --with-registry-auth -c docker-stack.yml demoweb
 
 ### 通过docker启动jenkins
 ```
+mkdir -p /var/jenkins_home && \
+chmod +777 /var/jenkins_home
+
 docker run -d -it --name jenkins -v /var/jenkins_home:/var/jenkins_home -p 8080:8080 jenkins/jenkins:lts
+
+防火墙开启 8080端口, 允许外部访问
 ```
 ### 配置jenkins插件
 从SCM下载代码： git
